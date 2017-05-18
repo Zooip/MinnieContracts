@@ -1,4 +1,4 @@
-pragma solidity ^0.4.2;
+pragma solidity ^0.4.9;
 
 import '../proposal.sol';
 import '../minnie_bank.sol';

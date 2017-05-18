@@ -1,4 +1,4 @@
-pragma solidity ^0.4.2;
+pragma solidity ^0.4.9;
 
 import 'governance_proxy.sol';
 import 'minnie_governance.sol';

@@ -1,26 +1,29 @@
-pragma solidity ^0.4.2;
+pragma solidity ^0.4.9;
 
 import '../proposal.sol';
 import '../minnie_bank.sol';
 import "../periodic_contribution_reporter.sol";
 
-
+// Deploy a new contract and add it to the bank's trustedAddresses
 contract DeployReporterProposal is Proposal{
     
-    function DeployReporterProposal(MinnieGovernance gov) Proposal(gov)
-    {
+    function DeployReporterProposal(MinnieGovernance gov) Proposal(gov) {
+        //Init proxies dependencies
         _requestedProxies.push(gov.identifierHash("governance"));
         _requestedProxies.push(gov.identifierHash("bank"));
     }
     
     
     function execute() {
+        //Set proxies
         GovernanceProxy gov_proxy=governance.proxyFor("governance");
         GovernanceProxy bank_proxy=governance.proxyFor("bank");
         
+        //Set proxified contracts
         MinnieGovernance proxyfiedGov=MinnieGovernance(gov_proxy);
         MinnieBank proxyfiedBank=MinnieBank(bank_proxy);
         
+        //Set real contracts (governance is already known from Proposal)
         MinnieBank bank=MinnieBank(bank_proxy.target());
         
         //deploy reporter

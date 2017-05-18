@@ -1,9 +1,17 @@
-pragma solidity ^0.4.2;
+pragma solidity ^0.4.9;
 
 
 import "std.sol";
 
 contract MinnieBank is owned {
+    
+uint public test_value=0;
+
+function test(uint v) onlyowner{
+    test_value=v;
+}
+
+    
 /* -
 This contract registers known contributors and their balances
 
@@ -55,13 +63,6 @@ ToDo :
     }
 
 /////// Deployment function
-    
-    uint public test_value=0;
-    
-    function test(uint v) onlyowner{
-        test_value=v;
-    }
-
     
 //Set initial state
     function MinnieBank(){
