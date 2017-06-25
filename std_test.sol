@@ -28,10 +28,10 @@ contract ownedTest is Test {
     assertEq(address(1), owned_contract.owner());
   }
 
-
   function testEventIsSentAtChange() {
     expectEventsExact(owned_contract);
     OwnerChanged(address(1), address(this));
+
     owned_contract.changeOwner(address(1));
   }
 }

@@ -20,6 +20,8 @@ contract DeployReporterProposal is Proposal{
         GovernanceProxy bank_proxy=governance.proxyFor("bank");
         
         //Set proxified contracts
+        // [XXX] - What does that mean?
+        // [XXX] - No new => means no constructor call?
         MinnieGovernance proxyfiedGov=MinnieGovernance(gov_proxy);
         MinnieBank proxyfiedBank=MinnieBank(bank_proxy);
         
