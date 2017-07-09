@@ -1,6 +1,6 @@
 pragma solidity ^0.4.9;
 
-import 'minnie_governance.sol';
+import './MinnieGovernance.sol';
 
 contract GovernanceProxy {
     
@@ -22,6 +22,7 @@ contract GovernanceProxy {
     }
     
     function GovernanceProxy(address _target){
+        // Should get created by a MinnieGovernance
         governanceContract=MinnieGovernance(msg.sender);
         target=_target;
     }

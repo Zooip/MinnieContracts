@@ -1,8 +1,8 @@
 pragma solidity ^0.4.9;
 
-import '../proposal.sol';
-import '../minnie_bank.sol';
-import "../periodic_contribution_reporter.sol";
+import '../Proposal.sol';
+import '../MinnieBank.sol';
+import "../PeriodicContributionRepository.sol";
 
 // Deploy a new contract and add it to the bank's trustedAddresses
 contract DeployReporterProposal is Proposal{

@@ -1,10 +1,10 @@
 pragma solidity ^0.4.9;
 
-import "std.sol";
-import "minnie_bank.sol";
-import 'governance_proxy.sol';
-import 'proposal.sol';
-import 'proposal_validator.sol';
+import "./owned.sol";
+import "./MinnieBank.sol";
+import './GovernanceProxy.sol';
+import './Proposal.sol';
+import './ProposalValidator.sol';
 
 contract MinnieGovernance is owned {
     

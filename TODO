@@ -1,0 +1,16 @@
+# [OG] - Write a JS test or a migration to reproduce the steps done on the interface
+
+## Steps to reproduce
+
+- Create MinnieGovernance
+- => observe bank.contributorsCount == 0:
+  - get bank proxy address from governance.proxyFor("bank")
+  - get the bankProxy instance from this address
+  - get the bank address from bankProxy.target
+  - call bank.contributorsCount
+- Create TestProposal(governance)
+- Call governance.executeProposal(proposal)  // [FIXME] - here, we need to skip the
+  isExecutableProposal call for now
+- => observe it should have added a contributor in the bank.
+
+# [TODO] - Write a test with Javascript for the gov -> bank setting

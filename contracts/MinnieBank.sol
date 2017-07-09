@@ -1,7 +1,7 @@
 pragma solidity ^0.4.9;
 
 
-import "std.sol";
+import "./owned.sol";
 
 contract MinnieBank is owned {
     

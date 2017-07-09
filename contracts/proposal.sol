@@ -1,7 +1,7 @@
 pragma solidity ^0.4.9;
 
-import 'governance_proxy.sol';
-import 'minnie_governance.sol';
+import './GovernanceProxy.sol';
+import './MinnieGovernance.sol';
 
 
 contract Proposal{
