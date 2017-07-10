@@ -1,7 +1,7 @@
 pragma solidity ^0.4.9;
 
-import "std.sol";
-import "minnie_governance.sol";
+import "./owned.sol";
+import "./MinnieGovernance.sol";
 
 contract ProposalValidator {
     
@@ -70,4 +70,3 @@ contract ProposalValidator {
         votesOn[proposal].votes[msg.sender]=vote;
     }
 }
-    

@@ -1,18 +1,22 @@
 pragma solidity ^0.4.9;
 
-import "std.sol";
-import "minnie_bank.sol";
-import 'governance_proxy.sol';
-import 'proposal.sol';
-import 'proposal_validator.sol';
+import "./owned.sol";
+import "./MinnieBank.sol";
+import './GovernanceProxy.sol';
+import './Proposal.sol';
+import './ProposalValidator.sol';
 
 contract MinnieGovernance is owned {
     
     mapping(bytes32 => GovernanceProxy) public proxies;
     ProposalValidator public proposalValidator;
     
-    function setProxyFor(string identifier, address target) returns(GovernanceProxy){
+    // [XXX] - Shounldn't it be onlyowner?
+    function setProxyFor(string identifier, address target) onlyowner returns(GovernanceProxy) {
         bytes32 h=identifierHash(identifier);
+        // [XXX] - Why create a new GProxy contract and not change the existing proxy's target?
+        // Because nobody owns the proxy, probably?
+        // Then, shouldn't we somehow "delete" the old proxy?
         GovernanceProxy proxy=new GovernanceProxy(target);
         owned(target).changeOwner(address(proxy));
         return proxies[h]=proxy;

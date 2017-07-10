@@ -1,7 +1,7 @@
 pragma solidity ^0.4.9;
 
-import "std.sol";
-import "minnie_bank.sol";
+import "./owned.sol";
+import "./MinnieBank.sol";
 
 contract PeriodicContributionRepository is owned, bankTrusted{
 /* -

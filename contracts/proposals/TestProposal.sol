@@ -1,7 +1,7 @@
 pragma solidity ^0.4.9;
 
-import '../proposal.sol';
-import '../minnie_bank.sol';
+import '../Proposal.sol';
+import '../MinnieBank.sol';
 
 
 contract TestProposal is Proposal{
@@ -17,7 +17,7 @@ contract TestProposal is Proposal{
         MinnieBank realBank=MinnieBank(proxy.target());
         MinnieBank proxyBank=MinnieBank(address(proxy));
         log0(bytes32(realBank.test_value()));
-        proxyBank.test(32);
+        proxyBank.registerContributor(address(1));
         log0(bytes32(realBank.test_value()));
     }
     
